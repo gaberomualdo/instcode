@@ -125,7 +125,8 @@ body {
   line-height: 1.6;
   font-weight: 400;
   font-family: "Droid Sans", "Open Sans", "Segoe UI", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #222; }
+  background-color: #222;
+  color: #fff; }
 
 
 /* Typography

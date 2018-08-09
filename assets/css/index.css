@@ -1,0 +1,41 @@
+div.button_container {
+  height: 100vh;
+  padding: calc((100vh - 33.5rem) / 2) 7.5rem;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 0;
+}
+div.button_container h1 {
+  font-size: 4rem;
+  text-transform: uppercase;
+  width: 100%;
+  text-align: center;
+  line-height: 1;
+  margin: 0;
+  letter-spacing: normal;
+}
+div.button_container button {
+  width: 20rem;
+  height: 20rem;
+  border: none;
+  color: #fff;
+  font-size: 2.5rem;
+  letter-spacing: 0.125rem;
+  border-radius: 0;
+  margin: 0 1.75rem;
+  margin-top: 3.5rem;
+  display: inline-block;
+  transition: box-shadow 0.25s;
+}
+div.button_container button:hover {
+  box-shadow: 0 0 0 0.35rem white;
+}
+div.button_container button.easy {
+  background-color: #0f0;
+}
+div.button_container button.medium {
+  background-color: #ff0;
+}
+div.button_container button.hard {
+  background-color: #f00;
+}

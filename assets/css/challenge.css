@@ -1,0 +1,62 @@
+div.challenge_description, div.code_editor {
+  float: left;
+  display: block;
+  height: 100vh;
+  box-sizing: border-box;
+  overflow-y: scroll;
+}
+div.challenge_description {
+  width: 30%;
+  border-right: 2px solid white;
+  padding: 2.5rem;
+  position: relative;
+}
+div.challenge_description strong.title {
+  font-size: 2.75rem;
+  margin-bottom: 1rem;
+  display: block;
+  word-wrap: break-word;
+  line-height: 1.35;
+}
+div.challenge_description p {
+  text-align: justify;
+}
+
+div.challenge_description div.bottom_area {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: calc(30% - 2px);
+  height: 4rem;
+  line-height: 4rem;
+  font-size: 1.75rem;
+}
+div.challenge_description div.bottom_area span {
+  height: 5rem;
+  padding: 0 1.625rem;
+  display: block;
+  float: right;
+}
+div.challenge_description div.bottom_area span.difficulty {
+  text-transform: uppercase;
+  float: left;
+}
+div.challenge_description div.bottom_area span.difficulty.easy {
+  background-color: #0f0;
+}
+div.challenge_description div.bottom_area span.difficulty.medium {
+  background-color: #ff0;
+}
+div.challenge_description div.bottom_area span.difficulty.hard {
+  background-color: #f00;
+}
+div.code_editor {
+  width: calc(70% - 7.5rem);
+  background-color: #222;
+}
+div.code_editor .ace_gutter {
+  background-color: #222;
+}
+div.code_editor .ace_print-margin {
+  display: none;
+}
