@@ -7,7 +7,7 @@ div.challenge_description, div.code_editor {
 }
 div.challenge_description {
   width: 30%;
-  border-right: 2px solid white;
+  border-right: 0.35rem solid white;
   padding: 2.5rem;
   position: relative;
 }
@@ -23,7 +23,7 @@ div.challenge_description p {
   font-size: 1.65rem;
   line-height: 1.85;
 }
-div.challenge_description code {
+div.challenge_description code,div.run_info_area div.test div.test_content code {
   background-color: transparent;
   font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', 'Bitstream Vera Sans Mono', 'DejaVu Sans Mono', monospace;
 }
@@ -32,7 +32,7 @@ div.challenge_description div.bottom_area {
   position: fixed;
   bottom: 0;
   left: 0;
-  width: calc(30% - 2px);
+  width: calc(30% - 0.35rem);
   height: 4rem;
   line-height: 4rem;
   font-size: 1.75rem;
@@ -89,5 +89,128 @@ div.bottom_buttons button {
   font-size: 1.5rem;
 }
 div.bottom_buttons button:hover{
+  opacity: 0.75;
+}
+div.run_info_area {
+  width: calc(70% - 7.75rem);
+  height: 100vh;
+  position: fixed;
+  right: 7.75rem;
+  top: 0;
+  z-index: 9998;
+  background-color: #222;
+  padding: 2.5rem;
+  box-sizing: border-box;
+  overflow-y: scroll;
+}
+div.run_info_area:not(.opened){
+  display: none;
+}
+div.run_info_area h1 {
+  font-size: 5rem;
+  text-transform: uppercase;
+  letter-spacing: normal;
+  background-color: var(--hard-color);
+  display: block;
+  float: left;
+  line-height: 1;
+  padding: 3.5rem;
+  margin: 0;
+}
+div.run_info_area h1.success {
+  background-color: var(--easy-color);
+}
+
+div.run_info_area div.test {
+  width: 100%;
+  margin-top: 2.5rem;
+  float: left;
+  clear: both;
+  background-color: #444;
+}
+div.run_info_area div.test div.top_area {
+  height: 5rem;
+  box-sizing: border-box;
+  padding: 1rem;
+}
+div.run_info_area div.test div.top_area span.arrow,div.run_info_area div.test div.top_area span.success_status {
+  height: 3rem;
+  width: 3rem;
+  cursor: pointer;
+  background-image: url(../img/arrow_right.png);
+  background-repeat: no-repeat;
+  background-size: 2rem;
+  background-position: center center;
+  display: block;
+  float: left;
+  margin-right: 0.5rem;
+}
+div.run_info_area div.test div.top_area span.arrow.down {
+  background-image: url(../img/arrow_down.png);
+  margin-right: 0.75rem;
+}
+div.run_info_area div.test div.top_area p {
+  height: 3rem;
+  line-height: 3rem;
+  font-size: 1.6rem;
+  margin: 0;
+  display: inline-block;
+}
+div.run_info_area div.test div.top_area span.success_status {
+  float: right;
+  margin: 0;
+  background-size: 1.5rem;
+  border-radius: 50%;
+  cursor: default;
+}
+div.run_info_area div.test div.top_area span.success_status.success {
+  background-image: url(../img/check.png);
+  background-color: var(--easy-color);
+}
+div.run_info_area div.test div.top_area span.success_status.fail {
+  background-image: url(../img/fail.png);
+  background-color: var(--hard-color);
+}
+
+div.run_info_area div.test div.test_content {
+  padding: 1rem;
+  padding-top: 0;
+}
+
+div.run_info_area div.test div.test_content:not(.opened) {
+  display: none;
+}
+div.run_info_area div.test div.test_content p {
+  margin: 1rem 0;
+  margin-left: 1rem;
+}
+div.run_info_area div.test div.test_content p code.true {
+  color: var(--hard-color);
+}
+
+div.run_info_area a.extra_button {
+  height: 4.5rem;
+  line-height: 4.5rem;
+  color: white;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  font-size: 1.5rem;
+  display: block;
+  float: right;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 0 1.5rem;
+  letter-spacing: .08rem;
+}
+div.run_info_area a.extra_button.fail {
+  background-color: var(--hard-color);
+}
+div.run_info_area a.extra_button.success {
+  background-color: var(--easy-color);
+}
+div.run_info_area a.extra_button:hover{
   opacity: 0.75;
 }

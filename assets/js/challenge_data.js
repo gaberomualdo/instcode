@@ -2,7 +2,7 @@ var _challenges_list = [
   [
     {
       name: "Prime Numbers",
-      description: "Write a function that calculates if <code>n</code> is a prime number.",
+      description: "Write a function that calculates if <code>n</code> is a prime number. Note that the numbers <code>1</code> and <code>0</code> are not primes, and that <code>n</code> is always positive.",
       time: 1,
       args: ["n"],
       function_name: "primeNum",
@@ -12,7 +12,8 @@ var _challenges_list = [
         [642647],
         [2],
         [1],
-        [53]
+        [53],
+        [0]
       ],
       possible_answer: function(args){
         for(var i = 2; i < args[0]; i++){
@@ -20,7 +21,11 @@ var _challenges_list = [
             return false;
           }
         }
-        return true;
+        if(args[0] == 1 || args[0] == 0){
+          return false;
+        }else{
+          return true;
+        }
       }
     },
     {

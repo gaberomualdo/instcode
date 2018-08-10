@@ -38,10 +38,10 @@ editor.getSession().setMode("ace/mode/javascript");
 // Challenge run
 
 $("div.bottom_buttons button.run").on("click",function(){
-  var answerCorrect = true;
+  var userFunctionReturnVals = [];
+  var correctFunctionReturnVals = [];
+  var success = true;
   _current_challenge_obj.argsTests.forEach(function(item,index){
-    var userFunctionReturnVal;
-    var correctFunctionReturnVal;
     try {
       eval(editor.getValue());
       var argsCodeJSAddOn = "";
@@ -53,14 +53,61 @@ $("div.bottom_buttons button.run").on("click",function(){
           argsCodeJSAddOn += i;
         });
       })();
-      userFunctionReturnVal = eval(_current_challenge_obj.function_name + "(" + argsCodeJSAddOn + ");");
+      userFunctionReturnVals.push({
+        error: false,
+        argsTested: item,
+        return_value: eval(_current_challenge_obj.function_name + "(" + argsCodeJSAddOn + ");")
+      });
     }catch(err){
-      userFunctionReturnVal = err.message;
+      userFunctionReturnVals.push({
+        error: true,
+        argsTested: item,
+        return_value: err.message
+      });
     }
-    correctFunctionReturnVal = _current_challenge_obj.possible_answer(item);
-    if(userFunctionReturnVal != correctFunctionReturnVal){
-      answerCorrect = false;
+    correctFunctionReturnVals.push({
+      return_value: _current_challenge_obj.possible_answer(item)
+    });
+  });
+
+  userFunctionReturnVals.forEach(function(item,index){
+    if(item.return_value !== correctFunctionReturnVals[index].return_value || item.error){
+      success = false;
     }
   });
-  alert(answerCorrect);
+
+  $("div.run_info_area").addClass("opened");
+  if(success){
+    $("div.run_info_area h1.success_status_title").addClass("success");
+    $("div.run_info_area h1.success_status_title").text("success");
+
+    $("div.run_info_area a.extra_button").text("Next Challenge");
+    $("div.run_info_area a.extra_button").addClass("success");
+    $("div.run_info_area a.extra_button").attr("href","#");
+  }else{
+    $("div.run_info_area h1.success_status_title").addClass("fail");
+    $("div.run_info_area h1.success_status_title").text("fail");
+
+    $("div.run_info_area a.extra_button").text("Try Again");
+    $("div.run_info_area a.extra_button").addClass("fail");
+    $("div.run_info_area a.extra_button").attr("href","javascript:$('div.run_info_area').toggleClass('opened');");
+  }
+  $("div.run_info_area div.test").remove();
+  userFunctionReturnVals.forEach(function(item,index){
+    var test_success = "success";
+    if(item.return_value !== correctFunctionReturnVals[index].return_value || item.error){
+      test_success = "fail";
+    }
+
+    var test_content_HTML = "";
+
+    item.argsTested.forEach(function(i,ind){
+      test_content_HTML += "<p><code>" + _current_challenge_obj.args[ind] + " = " + i + "</code></p>";
+    });
+    test_content_HTML += "<p>Return Value: <code class='"  + item.error +  "'>"  + item.return_value +  "</code>";
+    test_content_HTML += "<p>Expected Return Value: <code>"  + correctFunctionReturnVals[index].return_value +  "</code>";
+
+    $("div.run_info_area").append('<div class="test"><div class="top_area"><span class="arrow" onclick="$(this).parent().next().toggleClass(\'opened\');$(this).toggleClass(\'down\');"></span><p>Test ' + (index + 1) + '</p><span class="success_status ' + test_success + '"></span></div><div class="test_content">' + test_content_HTML + '</div></div>')
+
+  });
 });
