@@ -1,6 +1,12 @@
 @import url(//fonts.googleapis.com/css?family=Droid+Sans:400,700);
 @import url(//fonts.googleapis.com/css?family=Open+Sans:800);
 
+:root {
+  --easy-color: #27ae60;
+  --medium-color: #f39c12;
+  --hard-color: #c0392b;
+}
+
 a.main_logo_top_right {
   position: fixed;
   width: 5rem;

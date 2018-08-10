@@ -20,6 +20,12 @@ div.challenge_description strong.title {
 }
 div.challenge_description p {
   text-align: justify;
+  font-size: 1.65rem;
+  line-height: 1.85;
+}
+div.challenge_description code {
+  background-color: transparent;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', 'Bitstream Vera Sans Mono', 'DejaVu Sans Mono', monospace;
 }
 
 div.challenge_description div.bottom_area {
@@ -42,16 +48,16 @@ div.challenge_description div.bottom_area span.difficulty {
   float: left;
 }
 div.challenge_description div.bottom_area span.difficulty.easy {
-  background-color: #0f0;
+  background-color: var(--easy-color);
 }
 div.challenge_description div.bottom_area span.difficulty.medium {
-  background-color: #ff0;
+  background-color: var(--medium-color);
 }
 div.challenge_description div.bottom_area span.difficulty.hard {
-  background-color: #f00;
+  background-color: var(--hard-color);
 }
 div.code_editor {
-  width: calc(70% - 7.5rem);
+  width: calc(70% - 7.75rem);
   background-color: #222;
 }
 div.code_editor .ace_gutter {
@@ -59,4 +65,29 @@ div.code_editor .ace_gutter {
 }
 div.code_editor .ace_print-margin {
   display: none;
+}
+div.code_editor .ace_search {
+  font-size: 1.65rem;
+}
+div.bottom_buttons {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 7.75rem;
+  display: block;
+}
+div.bottom_buttons button {
+  height: 4.5rem;
+  line-height: 4.5rem;
+  color: white;
+  border: none;
+  background-color: var(--easy-color);
+  border-radius: 0;
+  padding: 0;
+  width: 100%;
+  margin: 0;
+  font-size: 1.5rem;
+}
+div.bottom_buttons button:hover{
+  opacity: 0.75;
 }

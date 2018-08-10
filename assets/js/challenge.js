@@ -14,7 +14,16 @@ $("div.challenge_description div.bottom_area span.difficulty").text(_getQueryVar
 $("div.challenge_description div.bottom_area span.difficulty").addClass(_getQueryVariable("d"));
 $("div.challenge_description div.bottom_area span.time").text("~" + _current_challenge_obj.time + " min");
 
-$("div.code_editor").prepend("function " + _current_challenge_obj.function_name + "(){");
+(function(){
+  var argsCodeJSAddOn = "";
+  _current_challenge_obj.args.forEach(function(item,index){
+    if(index > 0){
+      argsCodeJSAddOn += ",";
+    }
+    argsCodeJSAddOn += item;
+  })
+  $("div.code_editor").prepend("function " + _current_challenge_obj.function_name + "(" + argsCodeJSAddOn + "){");
+})();
 
 // ACE Editor (Code Editor) Init and Setup
 
@@ -25,3 +34,16 @@ editor.setOptions({
   tabSize: "2"
 })
 editor.getSession().setMode("ace/mode/javascript");
+
+// Challenge run
+
+$("div.bottom_buttons button.run").on("click",function(){
+  _current_challenge_obj.argsTests.forEach(function(item,index){
+    try {
+      eval(editor.getValue());
+
+    }catch(err){
+
+    }
+  });
+});

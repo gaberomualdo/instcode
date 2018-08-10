@@ -31,11 +31,11 @@ div.button_container button:hover {
   box-shadow: 0 0 0 0.35rem white;
 }
 div.button_container button.easy {
-  background-color: #0f0;
+  background-color: var(--easy-color);
 }
 div.button_container button.medium {
-  background-color: #ff0;
+  background-color: var(--medium-color);
 }
 div.button_container button.hard {
-  background-color: #f00;
+  background-color: var(--hard-color);
 }
