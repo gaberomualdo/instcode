@@ -14,8 +14,8 @@ $("div.challenge_description div.bottom_area span.difficulty").text(_getQueryVar
 $("div.challenge_description div.bottom_area span.difficulty").addClass(_getQueryVariable("d"));
 $("div.challenge_description div.bottom_area span.time").text("~" + _current_challenge_obj.time + " min");
 
-var argsCodeJSAddOn = "";
 (function(){
+  var argsCodeJSAddOn = "";
   _current_challenge_obj.args.forEach(function(item,index){
     if(index > 0){
       argsCodeJSAddOn += ",";
@@ -38,14 +38,29 @@ editor.getSession().setMode("ace/mode/javascript");
 // Challenge run
 
 $("div.bottom_buttons button.run").on("click",function(){
+  var answerCorrect = true;
   _current_challenge_obj.argsTests.forEach(function(item,index){
-    var x;
+    var userFunctionReturnVal;
+    var correctFunctionReturnVal;
     try {
       eval(editor.getValue());
-      x = eval(_current_challenge_obj.function_name + "(" + argsCodeJSAddOn + ");");
+      var argsCodeJSAddOn = "";
+      (function(){
+        item.forEach(function(i,ind){
+          if(ind > 0){
+            argsCodeJSAddOn += ",";
+          }
+          argsCodeJSAddOn += i;
+        });
+      })();
+      userFunctionReturnVal = eval(_current_challenge_obj.function_name + "(" + argsCodeJSAddOn + ");");
     }catch(err){
-      x = err.message;
+      userFunctionReturnVal = err.message;
     }
-    console.log(x);
+    correctFunctionReturnVal = _current_challenge_obj.possible_answer(item);
+    if(userFunctionReturnVal != correctFunctionReturnVal){
+      answerCorrect = false;
+    }
   });
+  alert(answerCorrect);
 });
