@@ -14,14 +14,14 @@ $("div.challenge_description div.bottom_area span.difficulty").text(_getQueryVar
 $("div.challenge_description div.bottom_area span.difficulty").addClass(_getQueryVariable("d"));
 $("div.challenge_description div.bottom_area span.time").text("~" + _current_challenge_obj.time + " min");
 
+var argsCodeJSAddOn = "";
 (function(){
-  var argsCodeJSAddOn = "";
   _current_challenge_obj.args.forEach(function(item,index){
     if(index > 0){
       argsCodeJSAddOn += ",";
     }
     argsCodeJSAddOn += item;
-  })
+  });
   $("div.code_editor").prepend("function " + _current_challenge_obj.function_name + "(" + argsCodeJSAddOn + "){");
 })();
 
@@ -39,11 +39,13 @@ editor.getSession().setMode("ace/mode/javascript");
 
 $("div.bottom_buttons button.run").on("click",function(){
   _current_challenge_obj.argsTests.forEach(function(item,index){
+    var x;
     try {
       eval(editor.getValue());
-
+      x = eval(_current_challenge_obj.function_name + "(" + argsCodeJSAddOn + ");");
     }catch(err){
-
+      x = err.message;
     }
+    console.log(x);
   });
 });
