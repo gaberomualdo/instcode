@@ -40,7 +40,14 @@ var _challenges_list = [
         ["person"],
         ["army"],
         ["octopus"]
-      ]
+      ],
+      possible_answer: function(args){
+        var returnVal = "a";
+        for(var x = 1;x < args[0].length;x++){
+          returnVal += args[0][x];
+        }
+        return returnVal;
+      }
     },
     {
       name: "Article Adder",
@@ -54,7 +61,15 @@ var _challenges_list = [
         ["person"],
         ["army"],
         ["octopus"]
-      ]
+      ],
+      possible_answer: function(args){
+        var vowels = ["a","i","o","u","e"];
+        if(vowels.indexOf(args[0][0]) > -1){
+          return "an " + args[0];
+        }else{
+          return "a " + args[0];
+        }
+      }
     },
     {
       name: "6 Digit",
@@ -68,7 +83,10 @@ var _challenges_list = [
         [652345],
         [7632],
         [856446]
-      ]
+      ],
+      possible_answer: function(args){
+        return "6" + String(args[0]) + "6";
+      }
     },
     {
       name: "Reverse",
@@ -82,7 +100,14 @@ var _challenges_list = [
         ["person"],
         ["army"],
         ["octopus"]
-      ]
+      ],
+      possible_answer: function(args){
+        var returnVal = "";
+        for(var i = 0;i<args[0].length;i++){
+          returnVal = args[0][i] + returnVal;
+        }
+        return returnVal;
+      }
     }
   ],
 ];

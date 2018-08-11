@@ -50,7 +50,7 @@ $("div.bottom_buttons button.run").on("click",function(){
           if(ind > 0){
             argsCodeJSAddOn += ",";
           }
-          argsCodeJSAddOn += i;
+          argsCodeJSAddOn += "_current_challenge_obj.argsTests[" + index + "][" + ind + "]";
         });
       })();
       userFunctionReturnVals.push({
@@ -83,7 +83,7 @@ $("div.bottom_buttons button.run").on("click",function(){
 
     $("div.run_info_area a.extra_button").text("Next Challenge");
     $("div.run_info_area a.extra_button").addClass("success");
-    $("div.run_info_area a.extra_button").attr("href","#");
+    $("div.run_info_area a.extra_button").attr("href","challenge.html?d=" + _getQueryVariable("d") + "&q=" + ((parseInt(_getQueryVariable("q")) + 1) % 5));
   }else{
     $("div.run_info_area h1.success_status_title").addClass("fail");
     $("div.run_info_area h1.success_status_title").text("fail");
@@ -108,6 +108,5 @@ $("div.bottom_buttons button.run").on("click",function(){
     test_content_HTML += "<p>Expected Return Value: <code>"  + correctFunctionReturnVals[index].return_value +  "</code>";
 
     $("div.run_info_area").append('<div class="test"><div class="top_area"><span class="arrow" onclick="$(this).parent().next().toggleClass(\'opened\');$(this).toggleClass(\'down\');"></span><p>Test ' + (index + 1) + '</p><span class="success_status ' + test_success + '"></span></div><div class="test_content">' + test_content_HTML + '</div></div>')
-
   });
 });
