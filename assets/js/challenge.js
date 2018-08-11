@@ -71,8 +71,14 @@ $("div.bottom_buttons button.run").on("click",function(){
   });
 
   userFunctionReturnVals.forEach(function(item,index){
-    if(item.return_value !== correctFunctionReturnVals[index].return_value || item.error){
-      success = false;
+    if(typeof item.return_value == "object"){
+      if(isEqual(item.return_value,correctFunctionReturnVals[index].return_value) == false || item.error){
+        success = false;
+      }
+    }else{
+      if(item.return_value !== correctFunctionReturnVals[index].return_value || item.error){
+        success = false;
+      }
     }
   });
 
@@ -95,8 +101,17 @@ $("div.bottom_buttons button.run").on("click",function(){
   $("div.run_info_area div.test").remove();
   userFunctionReturnVals.forEach(function(item,index){
     var test_success = "success";
-    if(item.return_value !== correctFunctionReturnVals[index].return_value || item.error){
-      test_success = "fail";
+    console.log(item.return_value);
+    console.log(correctFunctionReturnVals[index].return_value);
+    console.log(item.return_value == correctFunctionReturnVals[index].return_value);
+    if(typeof item.return_value == "object"){
+      if(isEqual(item.return_value,correctFunctionReturnVals[index].return_value) == false || item.error){
+        test_success = "fail";
+      }
+    }else{
+      if(item.return_value !== correctFunctionReturnVals[index].return_value || item.error){
+        test_success = "fail";
+      }
     }
 
     var test_content_HTML = "";

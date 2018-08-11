@@ -187,6 +187,13 @@ div.run_info_area div.test div.test_content p {
 div.run_info_area div.test div.test_content p code.true {
   color: var(--hard-color);
 }
+div.run_info_area div.test div.test_content p code {
+  max-width: calc(100% - 1.4rem);
+  display: inline-block;
+  box-sizing: border-box;
+  overflow-x: auto;
+  vertical-align: bottom;
+}
 
 div.run_info_area a.extra_button {
   height: 4.5rem;

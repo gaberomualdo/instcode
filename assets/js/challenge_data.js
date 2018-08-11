@@ -73,7 +73,7 @@ var _challenges_list = [
     },
     {
       name: "6 Digit",
-      description: "Write a function that adds the digit to the start and end of <code>n</code> (eg. if <code>n = 5</code>, return <code>656</code>).",
+      description: "Write a function that adds the digit 6 to the start and end of <code>n</code> (eg. if <code>n = 5</code>, return <code>656</code>).",
       time: 1,
       args: ["n"],
       function_name: "add6Digit",
@@ -85,7 +85,7 @@ var _challenges_list = [
         [856446]
       ],
       possible_answer: function(args){
-        return "6" + String(args[0]) + "6";
+        return parseInt("6" + String(args[0]) + "6");
       }
     },
     {
@@ -106,6 +106,109 @@ var _challenges_list = [
         for(var i = 0;i<args[0].length;i++){
           returnVal = args[0][i] + returnVal;
         }
+        return returnVal;
+      }
+    }
+  ],
+  [
+    {
+      name: "Vowel Remover",
+      description: "Write a function that returns <code>s</code> with all the vowels removed.",
+      time: 5,
+      args: ["s"],
+      function_name: "removeVowels",
+      argsTests: [
+        ["car"],
+        ["computer"],
+        ["person"],
+        ["army"],
+        ["octopus"]
+      ],
+      possible_answer: function(args){
+        var vowels = ["i","e","o","u","a"];
+        var returnVal = "";
+        for(var i = 0;i<args[0].length;i++){
+          if(vowels.indexOf(args[0][i]) == -1){
+            returnVal += args[0][i];
+          }
+        }
+        return returnVal;
+      }
+    },
+    {
+      name: "Teenage Speaker",
+      description: "Write a function that returns <code>s</code> with the word \"like\" between each word in <code>s</code>.",
+      time: 4,
+      args: ["s"],
+      function_name: "teenageSpeak",
+      argsTests: [
+        ["The quick brown fox jumps over the lazy dog."],
+        ["Some people have exceptional abilities we do not understand—for example, savants."],
+        ["In a mathematical or logical expression, a symbol that may be replaced by the name of any element of a set."],
+        ["A quotation is the repetition of one expression as part of another one, particularly when the quoted expression is well-known or explicitly attributed by citation to its original source, and it is indicated by quotation marks."]
+      ],
+      possible_answer: function(args){
+        var split = args[0].split(" ");
+        return split.join(" like ");
+      }
+    },
+    {
+      name: "Rhyme Bot",
+      description: "Write a function that returns an array of words that rhyme with <code>s</code> &mdash; <code>s</code> starting with each letter of the alphabet. Note that the list should be in alphabetical order, and that the list does include <code>s</code>.",
+      time: 5,
+      args: ["s"],
+      function_name: "rhyme",
+      argsTests: [
+        ["car"],
+        ["computer"],
+        ["person"],
+        ["army"],
+        ["octopus"]
+      ],
+      possible_answer: function(args){
+        var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+        var returnVal = [];
+        alphabet.forEach(function(item,index){
+          var addVal = item;
+          for(var x = 1;x < args[0].length;x++){
+            addVal += args[0][x];
+          }
+          returnVal.push(addVal);
+        });
+        return returnVal;
+      }
+    },
+    {
+      name: "Gender Swap",
+      description: "Write a function that returns <code>s</code> with the word \"he\" replaced with the word \"she\".",
+      time: 4,
+      args: ["s"],
+      function_name: "genderSwap",
+      argsTests: [
+        ["he likes cats."],
+        ["he and her were good friends."],
+        ["he loved to go shopping, but she liked to more."]
+      ],
+      possible_answer: function(args){
+        return args[0].replace("he","she");
+      }
+    },
+    {
+      name: "Array Adder",
+      description: "Write a function that given two arrays <code>s</code> and <code>t</code> (of Strings) of the same length, returns an array with each element in array <code>s</code> concatonated to the element in array <code>t</code> with its same index.",
+      time: 4,
+      args: ["s","t"],
+      function_name: "genderSwap",
+      argsTests: [
+        [["wrehd","reqhfa","hqhfae"],["teqhrsw","hrwer","ngfda"]],
+        [["a","x","r"],["y","h","k"]],
+        [["s","y","p"],["n","u","q"]]
+      ],
+      possible_answer: function(args){
+        var returnVal = [];
+        args[0].forEach(function(item,index){
+          returnVal.push(args[1][index] + item);
+        });
         return returnVal;
       }
     }
