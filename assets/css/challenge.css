@@ -185,7 +185,8 @@ div.run_info_area div.test div.test_content p {
   margin-left: 1rem;
 }
 div.run_info_area div.test div.test_content p code.true {
-  color: var(--hard-color);
+  border-color: var(--hard-color);
+  background-color: var(--hard-color);
 }
 div.run_info_area div.test div.test_content p code {
   max-width: calc(100% - 1.4rem);

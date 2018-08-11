@@ -73,7 +73,7 @@ var _challenges_list = [
     },
     {
       name: "6 Digit",
-      description: "Write a function that adds the digit 6 to the start and end of <code>n</code> (eg. if <code>n = 5</code>, return <code>656</code>).",
+      description: "Write a function that adds the digit \"6\" to the start and end of <code>n</code> (eg. if <code>n = 5</code>, return <code>656</code>).",
       time: 1,
       args: ["n"],
       function_name: "add6Digit",
