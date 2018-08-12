@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Home | InstCode</title>
+
+  <link rel="stylesheet" href="assets/css/vendor/normalize.css">
+  <link rel="stylesheet" href="assets/css/vendor/skeleton.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/challengeslist.css">
+
+  <link rel="icon" href="assets/img/main_logo.png">
+</head>
+<body>
+  <a href="index.html" class="main_logo_top_right"></a>
+
+  <div class="challenges_list">
+
+  </div>
+
+  <script src="assets/js/vendor/jquery.min.js"></script>
+  <script src="assets/js/challenge_data.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/challengeslist.js"></script>
+
+  <script>
+  // Media Queries for width and centering of challenge links
+  (function(){
+    const remSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
+    let returnHTML = "<style>@media (max-width: " + (127.9*remSize) + "px){ .challenges_list{ width: 81rem !important } } @media (max-width: " + (100.9*remSize) + "px){ .challenges_list{ width: 54rem !important } } @media (max-width: " + (73.9*remSize) + "px){ .challenges_list{ width: 27rem !important } }</style>";
+    document.write(returnHTML);
+  })();
+  </script>
+</body>
+</html>

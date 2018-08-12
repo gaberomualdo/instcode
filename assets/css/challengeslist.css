@@ -1,0 +1,35 @@
+body {
+  padding: 10rem;
+  text-align: center;
+}
+div.challenges_list {
+  width: 108rem;
+  max-width: 100%;
+  display: inline-block;
+  text-align: left;
+}
+div.challenges_list a {
+  display: block;
+  float: left;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.75rem;
+  padding: 1.5rem;
+  margin: 1.5rem;
+  width: 21rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+}
+div.challenges_list a:hover {
+  opacity: 0.75;
+}
+div.challenges_list.easy a {
+  background-color: var(--easy-color);
+}
+div.challenges_list.medium a {
+  background-color: var(--medium-color);
+}
+div.challenges_list.hard a {
+  background-color: var(--hard-color);
+}
