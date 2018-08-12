@@ -65,7 +65,7 @@ $("div.bottom_buttons button.run").on("click",function(){
       userFunctionReturnVals.push({
         error: true,
         argsTested: item,
-        return_value: err.message
+        return_value: err.toString()
       });
     }
     correctFunctionReturnVals.push({
@@ -86,7 +86,7 @@ $("div.bottom_buttons button.run").on("click",function(){
   });
 
   $("div.run_info_area").addClass("opened");
-  $("a.minimize_run_info_area").addClass("ran");
+  $("a.maximize_run_info_area").addClass("ran");
   if(success){
     $("div.run_info_area h1.success_status_title").addClass("success");
     $("div.run_info_area h1.success_status_title").text("success");

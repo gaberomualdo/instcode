@@ -32,10 +32,12 @@
     <button class="run">run</button>
   </div>
   <div class="run_info_area">
+    <a href="javascript:$('.run_info_area').toggleClass('opened');$(this).toggleClass('minimized');" class="minimize_run_info_area"></a>
     <h1 class="success_status_title"></h1>
     <a class="extra_button"></a>
   </div>
-  <a href="javascript:$('.run_info_area').toggleClass('opened');$(this).toggleClass('minimized');" class="minimize_run_info_area"></a>
+  <a href="javascript:$('.run_info_area').toggleClass('opened');$(this).toggleClass('minimized');" class="maximize_run_info_area"></a>
+
 
   <script src="assets/js/vendor/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.9/ace.js" type="text/javascript" charset="utf-8"></script>

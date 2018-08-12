@@ -240,12 +240,12 @@ div.challenge_description a.menulink_top_left svg {
   transform: scale(-1,1);
 }
 
-a.minimize_run_info_area {
+a.minimize_run_info_area,a.maximize_run_info_area {
   height: 4.5rem;
   width: 4.5rem;
-  position: fixed;
+  position: absolute;
   bottom: 0;
-  right: 10.25rem;
+  right: 2.5rem;
   background-color: #444;
   z-index: 9998;
   background-image: url(../img/up.png);
@@ -253,13 +253,16 @@ a.minimize_run_info_area {
   background-position: center;
   background-repeat: no-repeat;
 }
-a.minimize_run_info_area:not(.ran){
+a.maximize_run_info_area {
+  right: 10.25rem;
+}
+a.maximize_run_info_area:not(.ran), div.run_info_area.opened ~ a.maximize_run_info_area{
   display: none;
 }
-a.minimize_run_info_area:hover {
+a.minimize_run_info_area:hover, a.maximize_run_info_area:hover {
   opacity: 0.75;
 }
-div.run_info_area.opened ~ a.minimize_run_info_area {
+div.run_info_area.opened a.minimize_run_info_area {
   top: 2.5rem !important;
   background-image: url(../img/minimize.png);
 }
