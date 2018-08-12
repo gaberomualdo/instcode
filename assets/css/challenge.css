@@ -98,7 +98,7 @@ div.run_info_area {
   position: fixed;
   right: 7.75rem;
   top: 0;
-  z-index: 9998;
+  z-index: 9997;
   background-color: #222;
   padding: 2.5rem;
   box-sizing: border-box;
@@ -213,6 +213,7 @@ div.run_info_area a.extra_button {
   font-weight: bold;
   padding: 0 1.5rem;
   letter-spacing: .08rem;
+  margin-right: 7rem;
 }
 div.run_info_area a.extra_button.fail {
   background-color: var(--hard-color);
@@ -237,4 +238,28 @@ div.challenge_description a.menulink_top_left svg {
   width: 3.5rem;
   fill: #fff;
   transform: scale(-1,1);
+}
+
+a.minimize_run_info_area {
+  height: 4.5rem;
+  width: 4.5rem;
+  position: fixed;
+  bottom: 0;
+  right: 10.25rem;
+  background-color: #444;
+  z-index: 9998;
+  background-image: url(../img/up.png);
+  background-size: 2.5rem;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+a.minimize_run_info_area:not(.ran){
+  display: none;
+}
+a.minimize_run_info_area:hover {
+  opacity: 0.75;
+}
+div.run_info_area.opened ~ a.minimize_run_info_area {
+  top: 2.5rem !important;
+  background-image: url(../img/minimize.png);
 }

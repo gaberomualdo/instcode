@@ -1,5 +1,4 @@
 // Challenge Back Button Link Setup
-
 $("div.challenge_description a.menulink_top_left").attr("href","challengeslist.html?d=" + _getQueryVariable("d"));
 
 // Challenge Data Setup
@@ -87,6 +86,7 @@ $("div.bottom_buttons button.run").on("click",function(){
   });
 
   $("div.run_info_area").addClass("opened");
+  $("a.minimize_run_info_area").addClass("ran");
   if(success){
     $("div.run_info_area h1.success_status_title").addClass("success");
     $("div.run_info_area h1.success_status_title").text("success");
