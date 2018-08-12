@@ -1,3 +1,7 @@
+// Challenge Back Button Link Setup
+
+$("div.challenge_description a.menulink_top_left").attr("href","challengeslist.html?d=" + _getQueryVariable("d"));
+
 // Challenge Data Setup
 
 var _current_challenge_obj;

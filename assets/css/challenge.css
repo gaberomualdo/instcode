@@ -9,6 +9,7 @@ div.challenge_description {
   width: 30%;
   border-right: 0.35rem solid white;
   padding: 2.5rem;
+  padding-top: 7rem;
   position: relative;
 }
 div.challenge_description strong.title {
@@ -221,4 +222,19 @@ div.run_info_area a.extra_button.success {
 }
 div.run_info_area a.extra_button:hover{
   opacity: 0.75;
+}
+div.challenge_description a.menulink_top_left {
+  height: 3.5rem;
+  width: 3.5rem;
+  margin-bottom: 1.5rem;
+  display: block;
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+}
+div.challenge_description a.menulink_top_left svg {
+  height: 3.5rem;
+  width: 3.5rem;
+  fill: #fff;
+  transform: scale(-1,1);
 }
