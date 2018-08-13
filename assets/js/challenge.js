@@ -59,7 +59,7 @@ $("div.bottom_buttons button.run").on("click",function(){
       userFunctionReturnVals.push({
         error: false,
         argsTested: item,
-        return_value: eval(_current_challenge_obj.function_name + "(" + argsCodeJSAddOn + ");")
+        return_value: JSON.stringify(eval(_current_challenge_obj.function_name + "(" + argsCodeJSAddOn + ");"))
       });
     }catch(err){
       userFunctionReturnVals.push({
@@ -131,3 +131,8 @@ $("div.bottom_buttons button.run").on("click",function(){
 });
 
 // Pushing Data To Local Storage
+
+editor.on("change",function(){
+  _current_challenge_obj.code = editor.getValue();
+  localStorage.setItem("instcode_all_challenge_data",JSON.stringify(_current_challenge_obj));
+});
