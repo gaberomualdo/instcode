@@ -214,3 +214,16 @@ var _challenges_list = [
     }
   ],
 ];
+if(localStorage.getItem("instcode_all_challenge_data")){
+  const saved_data = JSON.parse(localStorage.getItem("instcode_all_challenge_data"));
+  _challenges_list.forEach(function(item,index){
+    item.forEach(function(i,ind){
+      if(saved_data[index][ind].code) {
+        _challenges_list[index][ind].code = saved_data[index][ind].code;
+      }
+      if(saved_data[index][ind].success) {
+        _challenges_list[index][ind].success = saved_data[index][ind].success;
+      }
+    });
+  });
+}

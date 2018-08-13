@@ -21,6 +21,13 @@ div.challenges_list a {
   text-transform: uppercase;
   text-align: center;
 }
+div.challenges_list a.true {
+  background-image: url(../img/check.png);
+  background-size: 2rem;
+  background-position: calc(100% - 0.5rem) 0.5rem;
+  background-repeat: no-repeat;
+}
+
 div.challenges_list a:hover {
   opacity: 0.75;
 }

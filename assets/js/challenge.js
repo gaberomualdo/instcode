@@ -26,6 +26,13 @@ $("div.challenge_description div.bottom_area span.time").text("~" + _current_cha
     argsCodeJSAddOn += item;
   });
   $("div.code_editor").prepend("function " + _current_challenge_obj.function_name + "(" + argsCodeJSAddOn + "){");
+
+  if(_current_challenge_obj.code) {
+    $("div.code_editor").html(_current_challenge_obj.code);
+  }
+  if(_current_challenge_obj.success) {
+    $("div.challenge_description").append('<div class="menulink_top_right"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg></div>');
+  }
 })();
 
 // ACE Editor (Code Editor) Init and Setup
@@ -59,7 +66,7 @@ $("div.bottom_buttons button.run").on("click",function(){
       userFunctionReturnVals.push({
         error: false,
         argsTested: item,
-        return_value: JSON.stringify(eval(_current_challenge_obj.function_name + "(" + argsCodeJSAddOn + ");"))
+        return_value: eval(_current_challenge_obj.function_name + "(" + argsCodeJSAddOn + ");")
       });
     }catch(err){
       userFunctionReturnVals.push({
@@ -88,6 +95,9 @@ $("div.bottom_buttons button.run").on("click",function(){
   $("div.run_info_area").addClass("opened");
   $("a.maximize_run_info_area").addClass("ran");
   if(success){
+    _current_challenge_obj.success = true;
+    _push_to_local_storage();
+
     $("div.run_info_area h1.success_status_title").addClass("success");
     $("div.run_info_area h1.success_status_title").text("success");
 
@@ -105,9 +115,6 @@ $("div.bottom_buttons button.run").on("click",function(){
   $("div.run_info_area div.test").remove();
   userFunctionReturnVals.forEach(function(item,index){
     var test_success = "success";
-    console.log(item.return_value);
-    console.log(correctFunctionReturnVals[index].return_value);
-    console.log(item.return_value == correctFunctionReturnVals[index].return_value);
     if(typeof item.return_value == "object"){
       if(isEqual(item.return_value,correctFunctionReturnVals[index].return_value) == false || item.error){
         test_success = "fail";
@@ -123,8 +130,8 @@ $("div.bottom_buttons button.run").on("click",function(){
     item.argsTested.forEach(function(i,ind){
       test_content_HTML += "<p><code>" + _current_challenge_obj.args[ind] + " = " + i + "</code></p>";
     });
-    test_content_HTML += "<p>Return Value: <code class='"  + item.error +  "'>"  + item.return_value +  "</code>";
-    test_content_HTML += "<p>Expected Return Value: <code>"  + correctFunctionReturnVals[index].return_value +  "</code>";
+    test_content_HTML += "<p>Return Value: <code class='"  + item.error +  "'>"  + JSON.stringify(item.return_value) +  "</code>";
+    test_content_HTML += "<p>Expected Return Value: <code>"  + JSON.stringify(correctFunctionReturnVals[index].return_value) +  "</code>";
 
     $("div.run_info_area").append('<div class="test"><div class="top_area"><span class="arrow" onclick="$(this).parent().next().toggleClass(\'opened\');$(this).toggleClass(\'down\');"></span><p>Test ' + (index + 1) + '</p><span class="success_status ' + test_success + '"></span></div><div class="test_content">' + test_content_HTML + '</div></div>')
   });
@@ -132,7 +139,11 @@ $("div.bottom_buttons button.run").on("click",function(){
 
 // Pushing Data To Local Storage
 
+function _push_to_local_storage(){
+  localStorage.setItem("instcode_all_challenge_data",JSON.stringify(_challenges_list));
+}
+
 editor.on("change",function(){
   _current_challenge_obj.code = editor.getValue();
-  localStorage.setItem("instcode_all_challenge_data",JSON.stringify(_current_challenge_obj));
+  _push_to_local_storage();
 });

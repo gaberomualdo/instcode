@@ -225,19 +225,38 @@ div.run_info_area a.extra_button:hover{
   opacity: 0.75;
 }
 div.challenge_description a.menulink_top_left {
+  left: 2rem;
+}
+div.challenge_description a.menulink_top_left, div.challenge_description div.menulink_top_right {
   height: 3.5rem;
   width: 3.5rem;
   margin-bottom: 1.5rem;
   display: block;
   position: absolute;
   top: 2rem;
-  left: 2rem;
 }
-div.challenge_description a.menulink_top_left svg {
+div.challenge_description a.menulink_top_left svg, div.challenge_description div.menulink_top_right svg {
   height: 3.5rem;
   width: 3.5rem;
   fill: #fff;
+}
+div.challenge_description a.menulink_top_left svg {
   transform: scale(-1, 1);
+}
+
+div.challenge_description div.menulink_top_right svg {
+  width: 2rem;
+  height: 2rem;
+}
+div.challenge_description div.menulink_top_right {
+  background-color: var(--easy-color);
+  border-radius: 50%;
+  box-sizing: border-box;
+  padding: 1.125rem 1rem;
+  height: 4rem;
+  width: 4rem;
+  right: 1.75rem;
+  top: 1.75rem;
 }
 
 a.minimize_run_info_area,a.maximize_run_info_area {
