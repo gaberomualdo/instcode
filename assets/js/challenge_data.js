@@ -29,7 +29,7 @@ var _challenges_list = [
       }
     },
     {
-      name: "Letter Replacement",
+      name: "Letter Swap",
       description: "Write a function that returns the value of <code>s</code> with the first letter replaced with the letter \"a\".",
       time: 1,
       args: ["s"],

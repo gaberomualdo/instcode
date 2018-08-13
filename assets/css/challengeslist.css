@@ -20,11 +20,12 @@ div.challenges_list a {
   font-weight: bold;
   text-transform: uppercase;
   text-align: center;
+  position: relative;
 }
 div.challenges_list a.true {
-  background-image: url(../img/check.png);
-  background-size: 2rem;
-  background-position: calc(100% - 0.5rem) 0.5rem;
+  background-image: url(../img/check_circle.png);
+  background-size: 2.25rem;
+  background-position: calc(100% - 0.65rem) 0.65rem;
   background-repeat: no-repeat;
 }
 
