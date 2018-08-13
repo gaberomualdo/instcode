@@ -9,7 +9,7 @@ div.challenge_description {
   width: 30%;
   border-right: 0.35rem solid white;
   padding: 2.5rem;
-  padding-top: 7rem;
+  padding-top: 7.5rem;
   position: relative;
 }
 div.challenge_description strong.title {
@@ -230,14 +230,14 @@ div.challenge_description a.menulink_top_left {
   margin-bottom: 1.5rem;
   display: block;
   position: absolute;
-  top: 1.5rem;
-  left: 1.5rem;
+  top: 2rem;
+  left: 2rem;
 }
 div.challenge_description a.menulink_top_left svg {
   height: 3.5rem;
   width: 3.5rem;
   fill: #fff;
-  transform: scale(-1,1);
+  transform: scale(-1, 1);
 }
 
 a.minimize_run_info_area,a.maximize_run_info_area {

@@ -129,3 +129,5 @@ $("div.bottom_buttons button.run").on("click",function(){
     $("div.run_info_area").append('<div class="test"><div class="top_area"><span class="arrow" onclick="$(this).parent().next().toggleClass(\'opened\');$(this).toggleClass(\'down\');"></span><p>Test ' + (index + 1) + '</p><span class="success_status ' + test_success + '"></span></div><div class="test_content">' + test_content_HTML + '</div></div>')
   });
 });
+
+// Pushing Data To Local Storage

@@ -33,3 +33,19 @@ div.challenges_list.medium a {
 div.challenges_list.hard a {
   background-color: var(--hard-color);
 }
+
+a.menulink_top_left {
+  height: 3.5rem;
+  width: 3.5rem;
+  margin-bottom: 1.5rem;
+  display: block;
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+}
+a.menulink_top_left svg {
+  height: 3.5rem;
+  width: 3.5rem;
+  fill: #fff;
+  transform: scale(-1, 1);
+}
