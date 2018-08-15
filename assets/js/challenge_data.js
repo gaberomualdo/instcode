@@ -239,6 +239,86 @@ var _challenges_list = [
         });
         return returnVal;
       }
+    },
+    {
+      name: "Word Search",
+      description: "Write a function that given the 2D square array <code>a</code> of 1 letter long strings, return true if the word <code>s</code> us written vertically down as a column in the 2D array <code>a</code>, and if not, return false.",
+      time: 10,
+      args: ["a","s"],
+      function_name: "wordSearch",
+      argsTests: [
+        [[['j', 'r', 'a', 'p'], ['k', 'e', 'r', 'z'], ['f', 'w', 'm', 'j'], ['d', 'q', 'y', 'r']],"army"],
+        [[['q', 'e', 'y', 'f'], ['e', 'i', 'm', 'u'], ['u', 'r', 'q', 'e'], ['c', 'm', 'i', 'b']],"test"],
+        [[['f', 'q', 'b', 'k'], ['o', 'e', 'r', 'c'], ['u', 't', 'y', 'i'], ['r', 'y', 'e', 'w']],"four"]
+      ],
+      possible_answer: function(args){
+        var rotatedArr = [];
+        args[0].forEach(function(item,index){
+          rotatedArr.push("");
+        });
+        args[0].forEach(function(item,index){
+          item.forEach(function(i,ind){
+            rotatedArr[ind] += i;
+          });
+        });
+        return (rotatedArr.indexOf(args[1]) != -1);
+      }
+    },
+    {
+      name: "Chess Color",
+      description: "Write a program that given the chess position string (eg. \"c3\") <code>s</code>, with letters corresponding to the x coordinate, and numbers corresponding to the y coordinate, returns true if the square is black and false if it is white. Note that the top left square is \"a8\" and is white, and the board is 8 by 8 and checkered.",
+      time: 7,
+      args: ["s"],
+      function_name: "chessColor",
+      argsTests: [
+        ["h4"],
+        ["e1"],
+        ["a5"],
+        ["g8"],
+        ["f3"]
+      ],
+      possible_answer: function(args){
+        var letters = ["a","b","c","d","e","f","g","h"];
+        var xCoord = letters.indexOf(args[0][0]) + 1;
+        var yCoord = parseInt(args[0][1]);
+        return (xCoord % 2 == yCoord % 2);
+      }
+    },
+    {
+      name: "Alph Order",
+      description: "Write a program that given the array <code>a</code> of lowercase strings, returns <code>a</code> with each element sorted in alphabetical order.",
+      time: 7,
+      args: ["a"],
+      function_name: "alphOrder",
+      argsTests: [
+        [["lorem", "ipsum", "dolor", "sit", "amet,", "consectetur", "adipisicing", "elit.", "illo,", "consequuntur."]],
+        [["the", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"]],
+        [["him", "and", "I", "were", "good", "friends"]]
+      ],
+      possible_answer: function(args){
+        return args[0].sort();
+      }
+    },
+    {
+      name: "Search",
+      description: "Write a function that given the search list array <code>a</code> of strings, and the search query <code>q</code>, returns and array of elements in the search list <code>a</code> that <code>q</code> is a substring of.",
+      time: 6,
+      args: ["a","q"],
+      function_name: "search",
+      argsTests: [
+        [["lorem", "ipsum", "dolor", "sit", "amet,", "consectetur", "adipisicing", "elit.", "illo,", "consequuntur."],"e"],
+        [["the", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"],"th"],
+        [["him", "and", "I", "were", "good", "friends"],"im"]
+      ],
+      possible_answer: function(args){
+        var searchResults = [];
+        args[0].forEach(function(item,index){
+          if(item.search(args[1]) != -1){
+            searchResults.push(item);
+          }
+        });
+        return searchResults;
+      }
     }
   ]
 ];
