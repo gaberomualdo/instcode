@@ -213,6 +213,34 @@ var _challenges_list = [
       }
     }
   ],
+  [
+    {
+      name: "Space Swapper",
+      description: "Write a function that returns <code>s</code> with multiple consecutive spaces replaced with one space.",
+      time: 7,
+      args: ["s"],
+      function_name: "spaceSwap",
+      argsTests: [
+        ["the quick   brown  fox jumps     over the lazy       dog."],
+        ["him   and I    were good       friends."],
+        ["he  loved     to go   shopping,   but   she    liked   to   more."]
+      ],
+      possible_answer: function(args){
+        var sArr = args[0].split("");
+        var returnVal = "";
+        sArr.forEach(function(item,index){
+          if(index == 0){
+            returnVal += item;
+          }else{
+            if(sArr[index-1] != " " || item != " "){
+              returnVal += item;
+            }
+          }
+        });
+        return returnVal;
+      }
+    }
+  ]
 ];
 if(localStorage.getItem("instcode_all_challenge_data")){
   const saved_data = JSON.parse(localStorage.getItem("instcode_all_challenge_data"));

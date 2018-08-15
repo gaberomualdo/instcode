@@ -128,7 +128,7 @@ $("div.bottom_buttons button.run").on("click",function(){
     var test_content_HTML = "";
 
     item.argsTested.forEach(function(i,ind){
-      test_content_HTML += "<p><code>" + _current_challenge_obj.args[ind] + " = " + i + "</code></p>";
+      test_content_HTML += "<p><code>" + _current_challenge_obj.args[ind] + " = " + JSON.stringify(i) + "</code></p>";
     });
     test_content_HTML += "<p>Return Value: <code class='"  + item.error +  "'>"  + JSON.stringify(item.return_value) +  "</code>";
     test_content_HTML += "<p>Expected Return Value: <code>"  + JSON.stringify(correctFunctionReturnVals[index].return_value) +  "</code>";

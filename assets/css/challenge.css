@@ -26,6 +26,7 @@ div.challenge_description p {
 }
 div.challenge_description code,div.run_info_area div.test div.test_content code {
   background-color: transparent;
+  white-space: pre;
   font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', 'Bitstream Vera Sans Mono', 'DejaVu Sans Mono', monospace;
 }
 
